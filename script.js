@@ -882,9 +882,17 @@ display_results = function(){
 
     $("#form").after("<div id=\"" + names[order[0]] + "\"class=\"card mt-3 p-3\">" + text[order[0]]+ "</div>" + "<div id=\"" + names[order[1]] + "\"class=\"card mt-3 p-3 \">" + text[order[1]]+ "</div>" + "<div id=\"" + names[order[2]] + "\"class=\"card mt-3 p-3 \">" + text[order[2]]+ "</div>" + "<div id=\"" + names[order[3]] + "\"class=\"card mt-3 p-3 \">" + text[order[3]]+ "</div>" + "<div id=\"" + names[order[4]] + "\"class=\"card mt-3 p-3 \">" + text[order[4]]+ "</div>");
 };
+desc_fill = function(){
+    $("#form").hide();
+    $("#form").after("<div id=\"" + names[0] + "\"class=\"card mt-3 p-3\">" + text[0]+ "</div>")
+    for (i=0;i<13;i++){
+        $("#"+names[i]).after("<div id=\"" + names[i+1] + "\"class=\"card mt-3 p-3\">" + text[i+1]+ "</div>");
+    }
+};
 
 $(document).ready(function(){
 	$("#form").html(`<h2>Welcome to the Oldham test!</h2>
 	<p>You will be presented with 107 questions. Choose "Yes" if you agree with the whole statement, "Maybe" if you partly agree or agree with one part of a two-part statement, and "No" if you disagree with the whole statement.</p>
-		<input type="button" class="btn btn-primary my-3" value="Start" onclick="wrap_fill()"> `)
+		<input type="button" class="btn btn-primary my-3" value="Start" onclick="wrap_fill()">
+        <input type="button" class="btn btn-primary my-3" value="Show Descriptions" onclick="desc_fill()"> `)
 });
